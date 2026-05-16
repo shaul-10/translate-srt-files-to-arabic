@@ -1,105 +1,120 @@
-# 🚀 התחלה מהירה
+# 🚀 QUICK START - התחלה מהירה
 
-## 3 צעדים פשוטים:
+## בדקה אחת: הכל מה שצריך לדעת
 
-### 1️⃣ הגדר API Key
+---
+
+## 1️⃣ **הגדרה (פעם אחת בלבד)**
+
 ```bash
+# התקנת ספריה
+pip install openai
+
+# הגדרת API Key
 export OPENAI_API_KEY="sk-..."
 ```
 
-### 2️⃣ הרץ ללא glossary
-```bash
-python3 translate_srt.py הדגמת_שאלות_קוד_באתר_BOM.srt
-```
-
-### 3️⃣ (אופציונלי) הרץ עם glossary
-```bash
-python3 translate_srt.py הדגמת_שאלות_קוד_באתר_BOM.srt --glossary glossary.csv
-```
+✅ **סיים!** עכשיו אתה מוכן.
 
 ---
 
-## 📁 קבצים שקיבלת:
-
-| קובץ | תיאור |
-|------|-------|
-| `translate_srt.py` | סקריפט התרגום הראשי |
-| `glossary_example.csv` | דוגמה של מילון עברית-ערבית |
-| `README.md` | דוקומנטציה מלאה |
-| `QUICK_START.md` | קובץ זה |
-
----
-
-## ✨ מה הסקריפט עושה:
-
-```
-input.srt (עברית)
-       ↓
-[זיהוי שפה]
-       ↓
-[שלח לOpenAI]
-       ↓
-[טעינת glossary אם קיים]
-       ↓
-input_ar.srt (ערבית ✓)
-```
-
----
-
-## 🎯 דוגמה מסיימת:
+## 2️⃣ **הרץ את התרגום**
 
 ```bash
-# הרץ עם glossary לתרגום עקבי
-python3 translate_srt.py demo.srt --glossary my_glossary.csv
+python3 translate_srt_workflow.py demo.srt
+```
 
-# תראה:
-# ✓ Loaded 30 terms from glossary
-# Found 100 subtitles
-# Translating subtitle 1/100... ✓
-# ... (עוד 99 כתוביות)
-# ✓ Done!
-#   Input:  demo.srt
-#   Glossary: my_glossary.csv
-#   Output: demo_ar.srt
+**זהו!** הקובץ `demo_ar.srt` מוכן! ✓
+
+---
+
+## 3️⃣ **דוגמה אמיתית (כמו שלך):**
+
+```bash
+python3 translate_srt_workflow.py "/mnt/c/Users/user/Documents/openUniversity/11203 מדמח בתיכון/סרטונים/הדגמה לשאלות קוד/הדגמת שאלות קוד באתר BOM.srt"
+```
+
+**תוצאה:** 
+```
+הדגמת שאלות קוד באתר BOM_ar.srt ✓
 ```
 
 ---
 
-## 📝 יצירת Glossary שלך:
+## 📊 **זה כל הסיפור!**
 
-1. פתח Excel או Text Editor
-2. כתוב שתי עמודות:
-   ```
-   hebrew,arabic
-   מונח עברי,مصطلح عربي
-   ```
-3. שמור כ-CSV (UTF-8, ללא BOM)
-4. השתמש עם `--glossary`
+| שלב | פקודה | תוצאה |
+|-----|--------|--------|
+| **1** | `pip install openai` | ספריה מותקנת |
+| **2** | `export OPENAI_API_KEY="sk-..."` | API מוגדר |
+| **3** | `python3 translate_srt_workflow.py input.srt` | `input_ar.srt` ✓ |
 
 ---
 
-## ❓ שאלות נפוצות:
+## 💡 **אפשרויות נוספות:**
 
-**ש: האם אצטרך glossary?**
-ת: לא, הוא אופציונלי. ללא glossary זה עדיין עובד טוב.
+### **שמור את קבצי העזר (.txt):**
+```bash
+python3 translate_srt_workflow.py demo.srt --keep-temp
+```
 
-**ש: כמה זמן זה לוקח?**
-ת: ~2-3 שניות לכל כתובית. 100 כתוביות ≈ 3-5 דקות.
-
-**ש: איפה מקבלים OpenAI key?**
-ת: https://platform.openai.com/account/api-keys
-
-**ש: יכול להרוץ ללא אינטרנט?**
-ת: לא, צריך חיבור ל-OpenAI API.
+### **תרגום ישיר (מהר יותר):**
+```bash
+python3 translate_srt.py demo.srt
+```
 
 ---
 
-## 🔗 הצעות הבאות:
+## ⏱️ **כמה זמן?**
 
-1. קרא את `README.md` לפרטים מלאים
-2. תרגל עם קובץ קטן קודם
-3. בנה glossary בהדרגה כשאתה משתמש
+- 🔧 הגדרה: 1 דקה
+- ⏳ תרגום: 2-5 דקות (תלוי במספר כתוביות)
+- 📦 סה"כ: 5 דקות בשטח!
 
 ---
 
-**מוכן להתחיל?** בהצלחה! 🎬✨
+## 💰 **עלות:**
+
+- 46 כתוביות (כמו בדוגמה) ≈ **$0.04**
+- 100 כתוביות ≈ **$0.09**
+- 300 כתוביות ≈ **$0.28**
+
+---
+
+## ✅ **בדיקה:**
+
+```bash
+# הרץ את הדוגמה
+python3 translate_srt_workflow.py demo.srt
+
+# בדוק את הקובץ
+cat demo_ar.srt
+```
+
+✓ **אם אתה רואה ערבית** - עבד!
+
+---
+
+## 📚 **למידע יותר:**
+
+- **README.md** - הוראות מלאות
+- **README_WORKFLOW.md** - פרטים על ה-Workflow
+- **README_COMPLETE.md** - תרגום ישיר
+
+---
+
+## 🎯 **זה הכל!**
+
+**שלוש שורות:**
+```bash
+pip install openai
+export OPENAI_API_KEY="sk-..."
+python3 translate_srt_workflow.py demo.srt
+```
+
+**וסיים!** 🎉
+
+---
+
+**גרסה:** 2.1  
+**עדכון אחרון:** May 2026
